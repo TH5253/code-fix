@@ -13,4 +13,4 @@ COPY cfix_server/ ./
 
 EXPOSE 80
 
-CMD ["sh", "-c", "python -m app.db.init_db && uvicorn app.main:app --host 0.0.0.0 --port 80"]
+CMD ["sh", "-c", "python -m uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-80}"]
