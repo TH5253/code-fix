@@ -1,0 +1,14 @@
+cfix_frontend/
+paper/
+ppt/
+
+cfix_server/.env
+cfix_server/venv/
+cfix_server/__pycache__/
+cfix_server/*.pyc
+cfix_server/*.pyo
+cfix_server/*.pyd
+cfix_server/tests/
+cfix_server/scripts/
+cfix_server/data/
+cfix_server/sandbox/
