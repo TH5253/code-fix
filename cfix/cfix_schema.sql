@@ -40,6 +40,9 @@ CREATE TABLE cf_user (
     UNIQUE KEY uk_cf_user_username (username)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户表';
 
+INSERT INTO cf_user (username, pwd_hash, role, status)
+VALUES ('test01', '$2b$12$vINXj0OAAxjuNt3VttNW2egNueyWMDu2MfRqngcf9A5Yg57//qdVC', 'user', 1);
+
 CREATE TABLE cf_chat_sess (
     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键',
     user_id BIGINT UNSIGNED NOT NULL COMMENT '用户ID',

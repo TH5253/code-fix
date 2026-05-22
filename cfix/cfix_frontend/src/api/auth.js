@@ -4,7 +4,6 @@ import req from '@/utils/req'
 
 /**
  * 登录
- * 当前后端支持：用户不存在时自动注册并登录
  */
 export function login(data) {
   return req({

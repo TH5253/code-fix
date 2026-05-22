@@ -16,15 +16,9 @@
             <el-input v-model="form.password" type="password" placeholder="请输入密码" show-password clearable size="large" />
           </el-form-item>
 
-          <div class="login-tip">当前后端支持“用户不存在时自动注册并登录”，便于原型联调。</div>
+          <div class="login-tip">当前系统已关闭自动注册，请使用预置账号登录。</div>
           <el-button class="login-btn" type="primary" size="large" :loading="loading" @click="handleLogin">登录并进入系统</el-button>
         </el-form>
-
-        <div class="demo-box">
-          <div class="demo-title">联调示例</div>
-          <div class="demo-text">用户名：test01</div>
-          <div class="demo-text">密码：123456</div>
-        </div>
       </el-card>
     </div>
   </div>
@@ -44,7 +38,7 @@ const userStore = useUserStore()
 const formRef = ref(null)
 const loading = ref(false)
 
-const form = reactive({ username: 'test01', password: '123456' })
+const form = reactive({ username: '', password: '' })
 const rules = {
   username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
   password: [{ required: true, message: '请输入密码', trigger: 'blur' }]

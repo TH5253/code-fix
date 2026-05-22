@@ -27,7 +27,7 @@
 - `GET /api/v1/auth/me`
 - `POST /api/v1/auth/logout`
 
-登录逻辑比较适合本地开发：如果用户名不存在，后端会先创建用户，再返回 token。也就是说，这个项目当前没有单独做注册页，而是把“首次登录即创建用户”写在了登录接口里。
+登录接口现在只校验已有账号，不再自动注册用户。默认初始化会写入一个预置账号：用户名 `test01`，密码 `123456`；如果用户名不存在或密码错误，登录会直接失败。
 
 ### 2. 会话与任务
 
@@ -266,7 +266,7 @@ pip install -r req.txt
 
 ## 数据库准备
 
-根据 MySQL 脚本：cfix_schema.sql 创建数据库：cfix_db
+根据 MySQL 脚本：cfix_schema.sql 创建数据库：cfix_db。脚本会在建表后默认插入一个账号：`test01 / 123456`。
 
 ## 启动方式
 
@@ -363,7 +363,7 @@ SANDBOX_IMAGE=cfix-python-sandbox:latest
 2. 准备 MySQL 数据库
 3. 执行 `python -m app.db.init_db`
 4. 启动 `uvicorn`
-5. 用 `/docs` 或前端登录页测试登录
+5. 用 `/docs` 或前端登录页通过 `test01 / 123456` 测试登录
 6. 先新建一个任务，跑通生成和执行
 7. 再去测自动修复、版本、trace 和实验
 
